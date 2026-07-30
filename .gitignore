@@ -1,0 +1,27 @@
+# Visual Studio
+.vs/
+.vscode/
+
+# Build folders
+Debug/
+Release/
+x64/
+x86/
+
+# Visual Studio generated files
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.idb
+*.ipch
+*.tlog
+*.lastbuildstate
+*.VC.db
+*.opendb
+*.suo
+*.user
+
+# CMake (if you use it later)
+CMakeFiles/
+CMakeCache.txt
