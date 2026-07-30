@@ -30,7 +30,7 @@ Learning modern OpenGL in C++.
 
 ## Screenshot
 
-*(Coming soon)*
+![OpenGL Lighting](Phong-Lighting-Model.png)
 
 ## Learning Resources
 
