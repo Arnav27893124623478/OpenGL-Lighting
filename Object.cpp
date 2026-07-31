@@ -40,6 +40,15 @@ void Object::Draw(glm::mat4 view, glm::mat4 projection, glm::vec3 light_Color, g
     glUniform3fv(glGetUniformLocation(shader.ID, "light_Color"), 1, glm::value_ptr(light_Color));
     glUniform3fv(glGetUniformLocation(shader.ID, "light_Position"), 1, glm::value_ptr(light_Position));
     glUniform3fv(glGetUniformLocation(shader.ID, "view_Position"), 1, glm::value_ptr(camera_Position));
+
+    glUniform3f(glGetUniformLocation(shader.ID, "material.ambient"), 1.0f, 0.5f, 0.31f);
+    glUniform3f(glGetUniformLocation(shader.ID, "material.diffuse"), 1.0f, 0.5f, 0.31f);
+    glUniform3f(glGetUniformLocation(shader.ID, "material.specular"), 0.5f, 0.5f, 0.5f);
+    glUniform1f(glGetUniformLocation(shader.ID, "material.shininess"), 32.0f);
+
+    glUniform3f(glGetUniformLocation(shader.ID, "light.ambient"), 0.2f, 0.2f, 0.2f);
+    glUniform3f(glGetUniformLocation(shader.ID, "light.diffuse"), 0.5f, 0.5f, 0.5f);
+    glUniform3f(glGetUniformLocation(shader.ID, "light.specular"), 1.0f, 1.0f, 1.0f);
     vao.Bind();
 
     glDrawElements(GL_TRIANGLES, IndexCount, GL_UNSIGNED_INT, 0);
