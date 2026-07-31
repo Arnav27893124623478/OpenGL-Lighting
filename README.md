@@ -7,6 +7,7 @@ Learning modern OpenGL in C++.
 - Ambient Lighting
 - Diffuse Lighting
 - Specular Lighting (Phong)
+- Materials
 - Textured Cubes
 - Camera Movement
 - GLSL Shaders
@@ -30,7 +31,7 @@ Learning modern OpenGL in C++.
 
 ## Screenshot
 
-![OpenGL Lighting](Materials.png)
+![OpenGL Lighting](image/Materials.png)
 
 ## Learning Resources
 
