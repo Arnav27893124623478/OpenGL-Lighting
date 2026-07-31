@@ -23,7 +23,7 @@ Learning modern OpenGL in C++.
 ## Current Progress
 
 - ✅ Phong Lighting
-- ⏳ Materials
+- ✅ Materials
 - ⏳ Multiple Light Sources
 - ⏳ Model Loading
 - ⏳ Shadow Mapping
