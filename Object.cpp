@@ -41,8 +41,6 @@ void Object::Draw(glm::mat4 view, glm::mat4 projection, glm::vec3 light_Color, g
     glUniformMatrix4fv(glGetUniformLocation(shader.ID, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
 
     // 
-    glUniform3fv(glGetUniformLocation(shader.ID, "object_Color"), 1, glm::value_ptr(Color));
-    glUniform3fv(glGetUniformLocation(shader.ID, "light_Color"), 1, glm::value_ptr(light_Color));
     glUniform3fv(glGetUniformLocation(shader.ID, "light_Position"), 1, glm::value_ptr(light_Position));
     glUniform3fv(glGetUniformLocation(shader.ID, "view_Position"), 1, glm::value_ptr(camera_Position));
 

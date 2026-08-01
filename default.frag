@@ -5,8 +5,8 @@ in vec3 FragPos;
 in vec3 Normal;
 in vec2 Texture;
 
-uniform vec3 object_Color;
-uniform vec3 light_Color;
+
+
 uniform vec3 light_Position;
 uniform vec3 view_Position;
 
