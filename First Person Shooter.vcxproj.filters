@@ -108,7 +108,7 @@
     <Image Include="..\Users\83dee\Downloads\POP_CAT.jpg">
       <Filter>Resource Files\Texture%27s</Filter>
     </Image>
-    <Image Include="brick.png">
+    <Image Include="Texture%27s\brick.png">
       <Filter>Resource Files\Texture%27s</Filter>
     </Image>
     <Image Include="Texture%27s\container2.png">

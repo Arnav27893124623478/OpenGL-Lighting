@@ -32,7 +32,7 @@ int main(){
 	// Create the Object + the Light Sorce
 	Object cube(CubeVertices, CubeVerticesSize, CubeIndiecs,CubeIndiecsSize , "default.vert", "default.frag");
 	Object light_sorce1(CubeVertices,CubeVerticesSize , CubeIndiecs, CubeIndiecsSize, "light.vert", "light.frag");
-	Texture texture("Texture's/container2.png");
+	Texture texture("Texture's/brick.png");
 
 
 	// Set The Position and the scale of the Light Sorce and the color for the cube
