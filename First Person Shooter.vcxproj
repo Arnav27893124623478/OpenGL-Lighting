@@ -167,6 +167,7 @@
   <ItemGroup>
     <Image Include="..\Users\83dee\Downloads\POP_CAT.jpg" />
     <Image Include="brick.png" />
+    <Image Include="Texture%27s\container2.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

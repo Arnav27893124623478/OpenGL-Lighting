@@ -56,6 +56,7 @@ void Object::Draw(glm::mat4 view, glm::mat4 projection, glm::vec3 light_Color, g
     glUniform3f(glGetUniformLocation(shader.ID, "light.ambient"), 0.2f, 0.2f, 0.2f);
     glUniform3f(glGetUniformLocation(shader.ID, "light.diffuse"), 0.5f, 0.5f, 0.5f);
     glUniform3f(glGetUniformLocation(shader.ID, "light.specular"), 1.0f, 1.0f, 1.0f);
+    glUniform1i(glGetUniformLocation(shader.ID, "texture0"), 0);
     vao.Bind();
 
     // Draw the World

@@ -3,12 +3,13 @@
 out vec4 FragColor;
 in vec3 FragPos;
 in vec3 Normal;
-
+in vec2 Texture;
 
 uniform vec3 object_Color;
 uniform vec3 light_Color;
 uniform vec3 light_Position;
 uniform vec3 view_Position;
+uniform sampler2D texture0;
 
 struct Material{
 	vec3 ambient;
@@ -25,6 +26,7 @@ struct Light{
 
 uniform Material material;
 uniform Light light;
+
 void main()
 {
     // Ambient Lighting 
@@ -45,5 +47,5 @@ void main()
 
 	// result
 	vec3 result = (ambient + diffuse + specular) * object_Color;
-	FragColor = vec4(result, 1.0);
+	FragColor = vec4(result, 1.0) * texture(texture0, Texture);
 }
