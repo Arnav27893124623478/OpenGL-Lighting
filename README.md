@@ -31,7 +31,7 @@ Learning modern OpenGL in C++.
 
 ## Screenshot
 
-![OpenGL Lighting](image/Materials.png)
+![OpenGL Lighting](image/Light-Maps.png)
 
 ## Learning Resources
 
