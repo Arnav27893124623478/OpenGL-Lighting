@@ -10,7 +10,6 @@
 #include "EBO.h"
 #include "ShaderClass.h"
 #include "Cube.h"
-#include "ShaderClass.h"
 
 
 // Main function of the Main File(C++)
