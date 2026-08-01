@@ -11,7 +11,7 @@ Learning modern OpenGL in C++.
 - Textured Cubes
 - Camera Movement
 - GLSL Shaders
-
+- Light Maps
 ## Technologies
 
 - C++
