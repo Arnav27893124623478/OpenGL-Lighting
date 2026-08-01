@@ -58,7 +58,7 @@ void Object::Draw(glm::mat4 view, glm::mat4 projection, glm::vec3 light_Color, g
     glUniform3f(glGetUniformLocation(shader.ID, "light.specular"), 1.0f, 1.0f, 1.0f);
     glUniform1i(glGetUniformLocation(shader.ID, "texture0"), 0);
     vao.Bind();
-
+    
     // Draw the World
     glDrawElements(GL_TRIANGLES, IndexCount, GL_UNSIGNED_INT, 0);
 
