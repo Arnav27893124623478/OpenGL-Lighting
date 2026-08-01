@@ -114,5 +114,8 @@
     <Image Include="Texture%27s\container2.png">
       <Filter>Resource Files\Texture%27s</Filter>
     </Image>
+    <Image Include="Texture%27s\container2_specular.png">
+      <Filter>Resource Files\Texture%27s</Filter>
+    </Image>
   </ItemGroup>
 </Project>

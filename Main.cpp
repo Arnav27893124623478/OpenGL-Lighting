@@ -31,11 +31,12 @@ int main(){
 	// Create the Object + the Light Sorce
 	Object cube(CubeVertices, CubeVerticesSize, CubeIndiecs,CubeIndiecsSize , "default.vert", "default.frag");
 	Object light_sorce1(CubeVertices,CubeVerticesSize , CubeIndiecs, CubeIndiecsSize, "light.vert", "light.frag");
-	Texture texture("Texture's/brick.png");
 
+	Texture diffuse("Texture's/container2.png");
+	Texture specular("Texture's/container2_specular.png");
 
 	// Set The Position and the scale of the Light Sorce and the color for the cube
-	cube.Color = glm::vec3(1.0f, 0.5f, 0.31f);
+	cube.Color = glm::vec3(1.0f);
 	cube.Position = glm::vec3(0.0f, 0.0f, 0.0f);
 	cube.Scale = glm::vec3(1.0f);
 
@@ -69,8 +70,9 @@ int main(){
 		// Set the settings for the Projeection Matrix
 		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)(window_witdh / (float)window_height), 0.1f, 100.0f);
 
-		// Unbind Texture
-
+		// Bind Texture
+		diffuse.Bind(GL_TEXTURE0);
+		specular.Bind(GL_TEXTURE1);
 
 		// Draw the Cube a the Lightr Sorce in the screen
 		cube.Draw(view, projection, light_sorce1.Color, light_sorce1.Position, camera.Postion);

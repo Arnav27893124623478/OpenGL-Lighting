@@ -32,7 +32,8 @@ Texture::Texture(const char* imgPath) {
 		
 }
 
-void Texture::Bind() {
+void Texture::Bind(GLenum TextureUnit) {
+	glActiveTexture(TextureUnit);
 	glBindTexture(GL_TEXTURE_2D, ID);
 }
 

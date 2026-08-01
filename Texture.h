@@ -6,7 +6,7 @@ public:
 	GLuint ID;
 
 	Texture(const char* imgPath);
-	void Bind();
+	void Bind(GLenum TextureUnit);
 	void Unbind();
 	void Delete();
 
