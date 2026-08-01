@@ -35,4 +35,4 @@ Learning modern OpenGL in C++.
 
 ## Learning Resources
 
-- LearnOpenGL
+- https://learnopengl.com/
