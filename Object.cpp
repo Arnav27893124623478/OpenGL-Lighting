@@ -11,7 +11,7 @@ Object::Object(GLfloat* vertices, GLsizeiptr vertexSize, GLuint* indices, GLsize
     Scale = glm::vec3(1.0f);
     Color = glm::vec3(1.0f, 1.0f, 1.0f);
     vao.Bind();
-
+    
     vbo = new VBO(vertices, vertexSize);
     ebo = new EBO(indices, indexSize);
 
@@ -56,6 +56,7 @@ void Object::Draw(glm::mat4 view, glm::mat4 projection, glm::vec3 light_Color, g
     glUniform3f(glGetUniformLocation(shader.ID, "light.specular"), 1.0f, 1.0f, 1.0f);
 
     // Light Maps and Texture
+    /* Diffuse Texture is for the whole cube But specluar texture is the Metle part of the Texture so the onlt Matel part shines!*/
     glUniform1i(glGetUniformLocation(shader.ID, "material.diffuse"), 0);
     glUniform1i(glGetUniformLocation(shader.ID, "material.specular"), 1);
     vao.Bind();
