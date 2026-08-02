@@ -51,8 +51,8 @@ void Object::Draw(glm::mat4 view, glm::mat4 projection, glm::vec3 light_Color, g
     glUniform1f(glGetUniformLocation(shader.ID, "material.shininess"), 32.0f);
 
     // For the Light Struct
-    glUniform3f(glGetUniformLocation(shader.ID, "light.ambient"), 0.2f, 0.2f, 0.2f);
-    glUniform3f(glGetUniformLocation(shader.ID, "light.diffuse"), 0.5f, 0.5f, 0.5f);
+    glUniform3f(glGetUniformLocation(shader.ID, "light.ambient"), 0.1f, 0.1f, 0.1f);
+    glUniform3f(glGetUniformLocation(shader.ID, "light.diffuse"), 1.0f, 1.0f, 1.0f);
     glUniform3f(glGetUniformLocation(shader.ID, "light.specular"), 1.0f, 1.0f, 1.0f);
 
     // Light Maps and Texture
