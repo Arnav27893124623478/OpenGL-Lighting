@@ -42,7 +42,6 @@ int main(){
 	cube.Scale = glm::vec3(1.0f);
 
 
-
 	light_sorce1.Position = glm::vec3(2.0f, 2.0f, 4.5f);
 	light_sorce1.Color = glm::vec3(1.0f, 1.0f, 1.0f);
 	light_sorce1.Scale = glm::vec3(0.5f);
