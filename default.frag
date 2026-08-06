@@ -7,7 +7,7 @@ in vec2 Texture;
 
 
 
-uniform vec3 light_Position;
+uniform vec3 light_Direction;
 uniform vec3 view_Position;
 
 
@@ -35,7 +35,7 @@ void main()
 
 	// Diffuse Lighting
 	vec3 norm = normalize(Normal);
-	vec3 light_Dir = normalize(light_Position - FragPos);
+	vec3 light_Dir = normalize(-light_Direction);
 	float diff = max(dot(norm, light_Dir), 0.0);
 	vec3 diffuse = diff * vec3(texture(material.diffuse, Texture)) * light.diffuse;
 	
