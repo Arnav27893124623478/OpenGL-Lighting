@@ -26,7 +26,7 @@ Object::Object(GLfloat* vertices, GLsizeiptr vertexSize, GLuint* indices, GLsize
 }
 
 // Draw Function 
-void Object::Draw(glm::mat4 view, glm::mat4 projection, glm::vec3 light_Color, glm::vec3 camera_Position) {
+void Object::Draw(glm::mat4 view, glm::mat4 projection,glm::vec3 light_Color, glm::vec3 camera_Position) {
 
     shader.Active();
 

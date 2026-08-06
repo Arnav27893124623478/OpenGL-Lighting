@@ -77,8 +77,8 @@ int main(){
 		specular.Bind(GL_TEXTURE1);
 
 		// Draw the Cube a the Lightr Sorce in the screen
-		cube.Draw(view, projection, light_sorce1.Color, camera.Postion);
-		light_sorce1.Draw(view, projection, light_sorce1.Color, camera.Postion);
+		cube.Draw(view, projection, light_sorce1.Color,camera.Postion);
+		light_sorce1.Draw(view, projection, light_sorce1.Color,camera.Postion);
 	
 	
 		// The Swap Buffer
