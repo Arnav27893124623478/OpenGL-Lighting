@@ -21,7 +21,10 @@ struct Light{
 	vec3 ambient;
 	vec3 diffuse;
 	vec3 specular;
-
+	
+    float constant;
+    float linear;
+    float quadratic;
 	
 };
 
@@ -45,6 +48,18 @@ void main()
 	vec3 refelctDir = reflect(-light_Dir, norm);
 	float spec = pow(max(dot(view_Dir, refelctDir), 0.0), material.shininess);
 	vec3 specular = light.specular * vec3(texture(material.specular, Texture))* spec;
+
+
+	//Attenuation
+	float distances = length(light_Position - FragPos);
+	float Attenuation = 1.0 / (light.constant + light.linear * distances + light.quadratic * (distances * distances)); 
+
+	// Multiply the Attenuation to the values;
+
+	ambient *= Attenuation;
+	diffuse *= Attenuation;
+	specular *= Attenuation;
+
 
 	// result
 	vec3 result = (ambient + diffuse + specular);

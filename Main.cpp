@@ -38,12 +38,12 @@ int main(){
 
 	// Set The Position and the scale of the Light Sorce and the color for the cube
 	cube.Color = glm::vec3(1.0f);
-	cube.Position = glm::vec3(0.0f, 0.0f, 5.0f);
+	cube.Position = glm::vec3(0.0f, 0.0f, 0.0f);
 	cube.Scale = glm::vec3(1.0f);
 
 
 
-	light_sorce1.Position = glm::vec3(4.0f, 2.4f, 1.2f);
+	light_sorce1.Position = glm::vec3(2.0f, 2.0f, 4.5f);
 	light_sorce1.Color = glm::vec3(1.0f, 1.0f, 1.0f);
 	light_sorce1.Scale = glm::vec3(0.5f);
 
