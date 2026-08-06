@@ -26,7 +26,7 @@ Object::Object(GLfloat* vertices, GLsizeiptr vertexSize, GLuint* indices, GLsize
 }
 
 // Draw Function 
-void Object::Draw(glm::mat4 view, glm::mat4 projection,glm::vec3 light_Color, glm::vec3 camera_Position) {
+void Object::Draw(glm::mat4 view, glm::mat4 projection,glm::vec3 light_Color, glm::vec3 Light_Position,glm::vec3 camera_Position) {
 
     shader.Active();
 
@@ -41,7 +41,7 @@ void Object::Draw(glm::mat4 view, glm::mat4 projection,glm::vec3 light_Color, gl
     glUniformMatrix4fv(glGetUniformLocation(shader.ID, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
 
     // 
-    glUniform3f(glGetUniformLocation(shader.ID, "light_Direction"), -0.2f, -1.0f, -0.3f);
+    glUniform3fv(glGetUniformLocation(shader.ID, "light_Position"), 1, glm::value_ptr(Light_Position));
     glUniform3fv(glGetUniformLocation(shader.ID, "view_Position"), 1, glm::value_ptr(camera_Position));
     glUniform3fv(glGetUniformLocation(shader.ID, "light_Color"), 1, glm::value_ptr(light_Color));
     // For the Material Struct
