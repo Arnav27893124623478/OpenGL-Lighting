@@ -10,7 +10,7 @@
 #include "EBO.h"
 #include "ShaderClass.h"
 #include "Cube.h"
-#include "Plane.h"
+
 
 // Main function of the Main File(C++)
 int main(){
@@ -31,7 +31,7 @@ int main(){
 	// Create the Object + the Light Sorce
 	Object cube(CubeVertices, CubeVerticesSize, CubeIndiecs,CubeIndiecsSize , "default.vert", "default.frag");
 	Object light_sorce1(CubeVertices, CubeVerticesSize, CubeIndiecs, CubeIndiecsSize, "light.vert", "light.frag");
-	Object Plane(PlaneVertices, PlaneVerticeSize, PlaneIndiecs, PlaneIndiecsSize, "default.vert", "default.frag");
+	
 
 	Texture diffuse("Texture's/container2.png");
 	Texture specular("Texture's/container2_specular.png");
@@ -41,9 +41,7 @@ int main(){
 	cube.Position = glm::vec3(0.0f, 0.0f, 5.0f);
 	cube.Scale = glm::vec3(1.0f);
 
-	Plane.Color = glm::vec3(1.0f, 0.0f, 0.0f);
-	Plane.Position = glm::vec3(0.0f, 1.0f, 5.0f);
-	Plane.Scale = glm::vec3(2.0f);
+
 
 	light_sorce1.Position = glm::vec3(4.0f, 2.4f, 1.2f);
 	light_sorce1.Color = glm::vec3(1.0f, 1.0f, 1.0f);
@@ -81,7 +79,7 @@ int main(){
 		// Draw the Cube a the Lightr Sorce in the screen
 		cube.Draw(view, projection, light_sorce1.Color, light_sorce1.Position, camera.Postion);
 		light_sorce1.Draw(view, projection, light_sorce1.Color, light_sorce1.Position, camera.Postion);
-		Plane.Draw(view, projection, light_sorce1.Color, light_sorce1.Position, camera.Postion);
+	
 	
 		// The Swap Buffer
 		window.SwapBuffers();
