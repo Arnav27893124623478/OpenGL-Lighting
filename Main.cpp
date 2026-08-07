@@ -63,7 +63,7 @@ int main(){
 
 	// While Loop
 	while (!window.WindowShouldClose()) {
-		glClearColor(0.471f, 0.745f, 1.0f, 1.0f);
+		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		double xpos, ypos;
@@ -95,11 +95,11 @@ int main(){
 			cube.Position = cubePositions[i];
 			cube.angle = 20.0f * i;
 
-			cube.Draw(view, projection, light_sorce1.Color, light_sorce1.Position, camera.Postion);
+			cube.Draw(view, projection, light_sorce1.Color, light_sorce1.Position, camera.Postion, camera.Forward);
 			
 		}
 
-		light_sorce1.Draw(view, projection, light_sorce1.Color, light_sorce1.Position ,camera.Postion);
+		light_sorce1.Draw(view, projection, light_sorce1.Color, light_sorce1.Position ,camera.Postion, camera.Forward);
 	
 	
 		// The Swap Buffer

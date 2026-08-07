@@ -27,6 +27,9 @@ struct Light{
     float linear;
     float quadratic;
 	
+	vec3 Position;
+	vec3 Direction;
+	float cutoff;
 };
 
 uniform Material material;
@@ -34,6 +37,8 @@ uniform Light light;
 
 void main()
 {
+
+	
     // Ambient Lighting 
 	vec3 ambient = vec3(texture(material.diffuse, Texture)) * light.ambient;
 
@@ -61,8 +66,21 @@ void main()
 	diffuse *= Attenuation;
 	specular *= Attenuation;
 
+	// Spotlight
+	float theta = dot(light_Dir, normalize(-light.Direction));
 
-	// result
-	vec3 result = (ambient + diffuse + specular);
+	vec3 result;
+	if(theta > light.cutoff)
+	{
+		// Print result for spotlight;
+		result = (ambient + diffuse + specular);
+
+	}
+	else
+	{
+	    result = ambient;
+	}
+	
+
 	FragColor = vec4(result, 1.0);
 }

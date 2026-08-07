@@ -10,6 +10,7 @@ Object::Object(GLfloat* vertices, GLsizeiptr vertexSize, GLuint* indices, GLsize
     Rotation = glm::vec3(0.0f);
     Scale = glm::vec3(1.0f);
     Color = glm::vec3(1.0f, 1.0f, 1.0f);
+    angle = 0.0f;
     vao.Bind();
     
     vbo = new VBO(vertices, vertexSize);
@@ -26,7 +27,7 @@ Object::Object(GLfloat* vertices, GLsizeiptr vertexSize, GLuint* indices, GLsize
 }
 
 // Draw Function 
-void Object::Draw(glm::mat4 view, glm::mat4 projection,glm::vec3 light_Color, glm::vec3 Light_Position,glm::vec3 camera_Position) {
+void Object::Draw(glm::mat4 view, glm::mat4 projection,glm::vec3 light_Color, glm::vec3 Light_Position,glm::vec3 camera_Position, glm::vec3 camera_Front){
 
         shader.Active();
 
@@ -59,6 +60,11 @@ void Object::Draw(glm::mat4 view, glm::mat4 projection,glm::vec3 light_Color, gl
         glUniform1f(glGetUniformLocation(shader.ID, "light.constant"), 1.0f);
         glUniform1f(glGetUniformLocation(shader.ID, "light.linear"),  0.00018f);
         glUniform1f(glGetUniformLocation(shader.ID, "light.quadratic"), 0.009f);
+
+
+        glUniform3fv(glGetUniformLocation(shader.ID, "light.Position"), 1, glm::value_ptr(camera_Position));
+        glUniform3fv(glGetUniformLocation(shader.ID, "light.Direction"), 1, glm::value_ptr(camera_Front));
+        glUniform1f(glGetUniformLocation(shader.ID,  "light.cutoff"), glm::cos(glm::radians(12.5f)));
 
         // Light Maps and Texture
         /* Diffuse Texture is for the whole cube But specluar texture is the Metle part of the Texture so the onlt Matel part shines!*/
