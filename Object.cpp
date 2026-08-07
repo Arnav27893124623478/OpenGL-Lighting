@@ -57,8 +57,8 @@ void Object::Draw(glm::mat4 view, glm::mat4 projection,glm::vec3 light_Color, gl
         glUniform3f(glGetUniformLocation(shader.ID, "light.specular"), 1.0f, 1.0f, 1.0f);
 
         glUniform1f(glGetUniformLocation(shader.ID, "light.constant"), 1.0f);
-        glUniform1f(glGetUniformLocation(shader.ID, "light.linear"), 0.022f);
-        glUniform1f(glGetUniformLocation(shader.ID, "light.quadratic"), 0.0019f);
+        glUniform1f(glGetUniformLocation(shader.ID, "light.linear"),  0.00018f);
+        glUniform1f(glGetUniformLocation(shader.ID, "light.quadratic"), 0.009f);
 
         // Light Maps and Texture
         /* Diffuse Texture is for the whole cube But specluar texture is the Metle part of the Texture so the onlt Matel part shines!*/
