@@ -28,43 +28,48 @@ Object::Object(GLfloat* vertices, GLsizeiptr vertexSize, GLuint* indices, GLsize
 // Draw Function 
 void Object::Draw(glm::mat4 view, glm::mat4 projection,glm::vec3 light_Color, glm::vec3 Light_Position,glm::vec3 camera_Position) {
 
-    shader.Active();
+        shader.Active();
 
-    // Create the Model Matrix
-    glm::mat4 model = glm::mat4(1.0f);
-    model = glm::translate(model, Position);
-    model = glm::scale(model, Scale);
+  
+        // Create the Model Matrix
+        glm::mat4 model = glm::mat4(1.0f);
+        model = glm::translate(model, Position);
+        model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
+        model = glm::scale(model, Scale);
 
-    //Draw the Object in the 3D World
-    glUniformMatrix4fv(glGetUniformLocation(shader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
-    glUniformMatrix4fv(glGetUniformLocation(shader.ID, "view"), 1, GL_FALSE, glm::value_ptr(view));
-    glUniformMatrix4fv(glGetUniformLocation(shader.ID, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
 
-    // 
-    glUniform3fv(glGetUniformLocation(shader.ID, "light_Position"), 1, glm::value_ptr(Light_Position));
-    glUniform3fv(glGetUniformLocation(shader.ID, "view_Position"), 1, glm::value_ptr(camera_Position));
+        //Draw the Object in the 3D World
+        glUniformMatrix4fv(glGetUniformLocation(shader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        glUniformMatrix4fv(glGetUniformLocation(shader.ID, "view"), 1, GL_FALSE, glm::value_ptr(view));
+        glUniformMatrix4fv(glGetUniformLocation(shader.ID, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
 
-    // This is from light.frag
-    glUniform3fv(glGetUniformLocation(shader.ID, "light_Color"), 1, glm::value_ptr(light_Color));
- 
+        // 
+        glUniform3fv(glGetUniformLocation(shader.ID, "light_Position"), 1, glm::value_ptr(Light_Position));
+        glUniform3fv(glGetUniformLocation(shader.ID, "view_Position"), 1, glm::value_ptr(camera_Position));
 
-    // For the Light Struct
-    glUniform3f(glGetUniformLocation(shader.ID, "light.ambient"), 0.1f, 0.1f, 0.1f);
-    glUniform3f(glGetUniformLocation(shader.ID, "light.diffuse"), 1.0f, 1.0f, 1.0f);
-    glUniform3f(glGetUniformLocation(shader.ID, "light.specular"), 1.0f, 1.0f, 1.0f);
+        // This is from light.frag
+        glUniform3fv(glGetUniformLocation(shader.ID, "light_Color"), 1, glm::value_ptr(light_Color));
 
-    glUniform1f(glGetUniformLocation(shader.ID, "light.constant"), 1.0f);
-    glUniform1f(glGetUniformLocation(shader.ID, "light.linear"), 0.09f);
-    glUniform1f(glGetUniformLocation(shader.ID, "light.quadratic"), 0.032f);
 
-    // Light Maps and Texture
-    /* Diffuse Texture is for the whole cube But specluar texture is the Metle part of the Texture so the onlt Matel part shines!*/
-    glUniform1i(glGetUniformLocation(shader.ID, "material.diffuse"), 0);
-    glUniform1i(glGetUniformLocation(shader.ID, "material.specular"), 1);
-    glUniform1f(glGetUniformLocation(shader.ID, "material.shininess"), 32.0f);
-    vao.Bind();
+        // For the Light Struct
+        glUniform3f(glGetUniformLocation(shader.ID, "light.ambient"), 0.1f, 0.1f, 0.1f);
+        glUniform3f(glGetUniformLocation(shader.ID, "light.diffuse"), 1.0f, 1.0f, 1.0f);
+        glUniform3f(glGetUniformLocation(shader.ID, "light.specular"), 1.0f, 1.0f, 1.0f);
+
+        glUniform1f(glGetUniformLocation(shader.ID, "light.constant"), 1.0f);
+        glUniform1f(glGetUniformLocation(shader.ID, "light.linear"), 0.022f);
+        glUniform1f(glGetUniformLocation(shader.ID, "light.quadratic"), 0.0019f);
+
+        // Light Maps and Texture
+        /* Diffuse Texture is for the whole cube But specluar texture is the Metle part of the Texture so the onlt Matel part shines!*/
+        glUniform1i(glGetUniformLocation(shader.ID, "material.diffuse"), 0);
+        glUniform1i(glGetUniformLocation(shader.ID, "material.specular"), 1);
+        glUniform1f(glGetUniformLocation(shader.ID, "material.shininess"), 32.0f);
+        vao.Bind();
+
+
+        // Draw the World
+        glDrawElements(GL_TRIANGLES, IndexCount, GL_UNSIGNED_INT, 0);
     
-    // Draw the World
-    glDrawElements(GL_TRIANGLES, IndexCount, GL_UNSIGNED_INT, 0);
-
+   
 }

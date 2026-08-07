@@ -18,6 +18,7 @@ public:
 	glm::vec3 Scale;
 	GLsizei  IndexCount;
 	glm::vec3 Color;
+	float angle;
 	Object(GLfloat* vertices, GLsizeiptr verticesSize,GLuint* indices, GLsizeiptr indicesSize, const char* VertexShader, const char* FragmentSize);
 	
 	void Draw(glm::mat4 view, glm::mat4 projection,glm::vec3 light_Color,glm::vec3 Light_Position ,glm::vec3 camera_Position);

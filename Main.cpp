@@ -12,6 +12,21 @@
 #include "Cube.h"
 
 
+glm::vec3 cubePositions[] =
+{
+	glm::vec3(-4.0f,  1.5f, -3.0f),
+	glm::vec3(2.5f, -2.0f, -6.0f),
+	glm::vec3(-1.5f,  3.0f, -8.5f),
+	glm::vec3(4.0f,  2.0f, -5.0f),
+	glm::vec3(0.0f, -3.0f, -4.5f),
+	glm::vec3(-3.5f, -1.0f, -9.0f),
+	glm::vec3(3.0f,  0.5f, -10.0f),
+	glm::vec3(-0.5f,  2.5f, -12.0f),
+	glm::vec3(5.0f, -1.5f, -7.5f),
+	glm::vec3(-5.0f,  0.0f, -6.5f)
+};
+
+
 // Main function of the Main File(C++)
 int main(){
 	// Window
@@ -38,7 +53,6 @@ int main(){
 
 	// Set The Position and the scale of the Light Sorce and the color for the cube
 	cube.Color = glm::vec3(1.0f);
-	cube.Position = glm::vec3(0.0f, 0.0f, 0.0f);
 	cube.Scale = glm::vec3(1.0f);
 
 
@@ -76,7 +90,15 @@ int main(){
 		specular.Bind(GL_TEXTURE1);
 
 		// Draw the Cube a the Lightr Sorce in the screen
-		cube.Draw(view, projection, light_sorce1.Color, light_sorce1.Position,camera.Postion);
+		
+		for (unsigned int i = 0; i < 10; i++) {
+			cube.Position = cubePositions[i];
+			cube.angle = 20.0f * i;
+
+			cube.Draw(view, projection, light_sorce1.Color, light_sorce1.Position, camera.Postion);
+			
+		}
+
 		light_sorce1.Draw(view, projection, light_sorce1.Color, light_sorce1.Position ,camera.Postion);
 	
 	
