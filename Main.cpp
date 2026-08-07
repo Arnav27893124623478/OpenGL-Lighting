@@ -63,7 +63,7 @@ int main(){
 
 	// While Loop
 	while (!window.WindowShouldClose()) {
-		
+		glClearColor(0.471f, 0.745f, 1.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		double xpos, ypos;
